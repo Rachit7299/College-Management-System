@@ -5,7 +5,7 @@
             <div class="box">
                 <mat-tab-group style="height: 100%;">
                     <mat-tab label="ADMIN"> 
-                        <form (ngSubmit)="adminLogin()" [formGroup]="loginForm" style="margin-top: 3rem;">
+                        <form (ngSubmit)="Login()" [formGroup]="loginForm" style="margin-top: 3rem;">
                             <mat-form-field appearance="outline" [style.width.px]=320>
                                 <mat-label>Username</mat-label>
                                 <input matInput name="username" formControlName="username" required />
@@ -18,7 +18,7 @@
                         </form>
                     </mat-tab>
                     <mat-tab label="FACULTY">
-                        <form (ngSubmit)="facultyLogin()" [formGroup]="loginForm2" style="margin-top: 3rem;">
+                        <form (ngSubmit)="Login()" [formGroup]="loginForm2" style="margin-top: 3rem;">
                             <mat-form-field appearance="outline" [style.width.px]=320>
                                 <mat-label>Username</mat-label>
                                 <input matInput name="username" formControlName="username" required />

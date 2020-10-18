@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroupDirective, NgForm } from "@angular/forms";
 import { Router } from '@angular/router';
+import { UserService } from '../../service/user.service'
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private apiService: UserService) { }
 
   loginForm = this.fb.group({
     username:[''],
@@ -26,15 +27,24 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  adminLogin(){
+  Login(){
     console.log(this.loginForm.value);
-    this.router.navigate(['/admin']);
+    this.apiService.login(this.loginForm.value).subscribe(
+      (res)=>{
+        localStorage.setItem('token',res.token);
+        localStorage.setItem('user_id',res._id);
+        if(res.privilege==1){
+          this.router.navigate(['/admin']);
+        }
+        else if(res.privilege==2){
+          this.router.navigate(['/faculty']);
+        }
+      },(err)=>{
+        console.log(err)
+      }
+    )
   }
 
-  facultyLogin(){
-    console.log(this.loginForm2.value);
-    this.router.navigate(['/faculty']);
-  }
 
 
 

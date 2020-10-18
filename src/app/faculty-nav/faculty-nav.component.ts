@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import {UserService } from '../../service/user.service'
 
 @Component({
   selector: 'app-faculty-nav',
@@ -16,6 +17,10 @@ export class FacultyNavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private apiService: UserService) {}
+
+  logout(){
+    this.apiService.logoutUser();
+  }
 
 }
