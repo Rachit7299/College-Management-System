@@ -27,17 +27,33 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  Login(){
-    console.log(this.loginForm.value);
+  adminLogin(){
     this.apiService.login(this.loginForm.value).subscribe(
       (res)=>{
-        localStorage.setItem('token',res.token);
-        localStorage.setItem('user_id',res._id);
         if(res.privilege==1){
+          localStorage.setItem('token',res.token);
+          localStorage.setItem('user_id',res._id);
           this.router.navigate(['/admin']);
         }
-        else if(res.privilege==2){
+        else{
+          window.alert('Only admins are allowed!')
+        }
+      },(err)=>{
+        console.log(err)
+      }
+    )
+  }
+
+  facultyLogin(){
+    this.apiService.login(this.loginForm2.value).subscribe(
+      (res)=>{
+        if(res.privilege==2){
+          localStorage.setItem('token',res.token);
+          localStorage.setItem('user_id',res._id);
           this.router.navigate(['/faculty']);
+        }
+        else{
+          window.alert('Faculty Not Found')
         }
       },(err)=>{
         console.log(err)

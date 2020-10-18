@@ -39,4 +39,10 @@ export class UserService {
     localStorage.removeItem('userId');
     window.location.replace('');
   }
+
+  loggedIn() {
+    return !!localStorage.getItem('token');
+  }
+
+  
 }
