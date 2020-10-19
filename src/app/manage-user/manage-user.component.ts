@@ -13,3 +13,9 @@ export class ManageUserComponent implements OnInit {
   }
 
 }
+
+export class UserDialogModel {
+
+  constructor(public user_id: string) {
+  }
+}

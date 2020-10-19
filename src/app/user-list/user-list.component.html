@@ -1,0 +1,21 @@
+<div style="padding: 2%;">
+    <h1 style="font-family: Montserrat; font-weight: 600;">Users</h1>
+    <mat-card class="login-card">
+        <table class="table-responsive" style="width: 100%;">
+            <tr style="border-bottom: solid 1px black; line-height: 40px;">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Privilege</th>
+                <th>Department</th>
+                <th>Actions</th>
+            </tr>
+            <tr style="line-height: 32px;" *ngFor="let com of results">
+                <td>{{com.name}}</td>
+                <td>{{com.email}}</td>
+                <td>{{privilege[com.privilege]}}</td>
+                <td>{{com.dept}}</td>
+                <td><a (click)="openDialog(com.id)">View</a></td>
+            </tr>
+        </table>
+    </mat-card>
+</div>

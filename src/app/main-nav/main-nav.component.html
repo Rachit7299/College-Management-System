@@ -10,6 +10,9 @@
       <a mat-list-item (click)="display()">Users</a>
       <a mat-list-item *ngIf="!isDisplay" routerLink="/admin/manage-users">Manage</a>
       <a mat-list-item *ngIf="!isDisplay" routerLink="/admin/create-user">Create</a>
+      <a mat-list-item (click)="display2()">Students</a>
+      <a mat-list-item *ngIf="!isDisplay2" routerLink="/admin/manage-users">Manage</a>
+      <a mat-list-item *ngIf="!isDisplay2" routerLink="/admin/create-user">Create</a>
       <a mat-list-item (click)="logout()">Logout</a>
     </mat-nav-list>
   </mat-sidenav>

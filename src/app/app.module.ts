@@ -31,6 +31,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { CreateStudentComponent } from './create-student/create-student.component';
 import { ManageStudentsComponent } from './manage-students/manage-students.component';
+import { StudentListComponent } from './student-list/student-list.component';
+import { UserListComponent } from './user-list/user-list.component';
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +44,9 @@ import { ManageStudentsComponent } from './manage-students/manage-students.compo
     CreateUserComponent,
     ManageUserComponent,
     CreateStudentComponent,
-    ManageStudentsComponent
+    ManageStudentsComponent,
+    StudentListComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,8 @@ import { ManageStudentsComponent } from './manage-students/manage-students.compo
     MatPaginatorModule,
     MatSortModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
