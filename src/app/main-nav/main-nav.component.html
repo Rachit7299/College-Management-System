@@ -6,8 +6,10 @@
     <mat-toolbar style="text-align: center;">Admin</mat-toolbar>
     <hr style="margin-top: 0px;">
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item routerLink="/admin/dashboard">Dashboard</a>
+      <a mat-list-item (click)="display()">Users</a>
+      <a mat-list-item *ngIf="!isDisplay" routerLink="/admin/manage-users">Manage</a>
+      <a mat-list-item *ngIf="!isDisplay" routerLink="/admin/create-user">Create</a>
       <a mat-list-item (click)="logout()">Logout</a>
     </mat-nav-list>
   </mat-sidenav>

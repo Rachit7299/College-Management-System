@@ -19,12 +19,29 @@ import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ManageUserComponent } from './manage-user/manage-user.component';
+import { CreateStudentComponent } from './create-student/create-student.component';
+import { ManageStudentsComponent } from './manage-students/manage-students.component';
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     LoginPageComponent,
-    FacultyNavComponent
+    FacultyNavComponent,
+    DashboardComponent,
+    CreateUserComponent,
+    ManageUserComponent,
+    CreateStudentComponent,
+    ManageStudentsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +58,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

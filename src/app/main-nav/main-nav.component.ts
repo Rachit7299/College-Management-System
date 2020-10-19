@@ -19,6 +19,18 @@ export class MainNavComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, private apiService: UserService) {}
 
+  isDisplay = true;
+  isDisplay1 = true;
+  isDisplay2 = true;
+  isDisplay3 = true;
+
+  display() {
+    this.isDisplay = !this.isDisplay;
+    if (this.isDisplay1 == false) this.isDisplay1 = !this.isDisplay1;
+    if (this.isDisplay2 == false) this.isDisplay2 = !this.isDisplay2;
+    if (this.isDisplay3 == false) this.isDisplay3 = !this.isDisplay3;
+  }
+
   logout(){
     this.apiService.logoutUser();
   }

@@ -33,7 +33,7 @@ export class LoginPageComponent implements OnInit {
         if(res.privilege==1){
           localStorage.setItem('token',res.token);
           localStorage.setItem('user_id',res._id);
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/admin/dashboard']);
         }
         else{
           window.alert('Only admins are allowed!')
@@ -50,7 +50,7 @@ export class LoginPageComponent implements OnInit {
         if(res.privilege==2){
           localStorage.setItem('token',res.token);
           localStorage.setItem('user_id',res._id);
-          this.router.navigate(['/faculty']);
+          this.router.navigate(['/faculty/dashboard']);
         }
         else{
           window.alert('Faculty Not Found')
