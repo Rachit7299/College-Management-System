@@ -13,13 +13,15 @@ export class UserListComponent implements OnInit {
   constructor(private dialog: MatDialog, private apiService: UserService) { }
 
   results:[];
+  total;
+  page:number=1;
   privilege=['-','Administrator','Faculty']
 
   ngOnInit(): void {
     this.apiService.getALL().subscribe(
       (data)=>{
         this.results=data;
-        console.log(data);
+        this.total=data.length;
 
       },(err)=>{
         window.alert(err);

@@ -34,6 +34,9 @@ import { ManageStudentsComponent } from './manage-students/manage-students.compo
 import { StudentListComponent } from './student-list/student-list.component';
 import { UserListComponent } from './user-list/user-list.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ViewFeeComponent } from './view-fee/view-fee.component';
+import { ManageFeeComponent } from './manage-fee/manage-fee.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +49,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     CreateStudentComponent,
     ManageStudentsComponent,
     StudentListComponent,
-    UserListComponent
+    UserListComponent,
+    ViewFeeComponent,
+    ManageFeeComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +76,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSortModule,
     MatSelectModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

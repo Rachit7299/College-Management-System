@@ -1,0 +1,30 @@
+<div style="padding: 3%;">
+<h2>Fee Structure</h2>
+<div class="row" style="margin: 0px;">
+    <h3>B-tech</h3>
+    <div class="row" style="margin: 0px;" *ngFor="let y of year">
+        <h4>{{y.viewValue}}</h4>
+        <table style="border: solid 1px black" >
+            <tr >
+                <th>Branch</th><th style="text-align: center;" *ngFor="let i of btechFee[y.value]">{{i.branch}}</th>
+            </tr>
+            <tr >
+                <th>Tution Fee</th><td *ngFor="let i of btechFee[y.value]">{{i.tutionfee}}</td>
+            </tr>
+            <tr >
+                <th>Book Fee</th><td *ngFor="let i of btechFee[y.value]">{{i.bookfees}}</td>
+            </tr>
+            <tr >
+                <th>Other Fee</th><td *ngFor="let i of btechFee[y.value]">{{i.otherfee}}</td>
+            </tr>
+            <tr >
+                <th>Hostel Fee</th><td *ngFor="let i of btechFee[y.value]">{{i.hostelfee}}</td>
+            </tr>
+            <tr >
+                <th>Total</th><td *ngFor="let i of btechFee[y.value]">{{i.totalfee}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+</div>
