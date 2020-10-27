@@ -1,22 +1,22 @@
 <div style="padding-top: 4%;">
     <h2 style="margin-left: 4%;">Manage Fee Structure</h2>
-    <mat-card class="login-card">
+    <mat-card class="login-card" *ngIf="iscourses">
         <mat-tab-group style="height: 100%;">
         <mat-tab label="Create/Edit">
             <form #f="ngForm" (ngSubmit)="submit(f)" [formGroup]="feeForm" style="margin-top: 3rem;">
                 <mat-form-field appearance="outline" [style.width.%]=50 [style.padding.%]=1>
                     <mat-label>Course</mat-label>
-                    <mat-select name="course" formControlName="course" >
-                        <mat-option *ngFor="let course of courses" [value]="course.value">
-                          {{ course.value }}
+                    <mat-select name="course" formControlName="course" (selectionChange)="branchform()">
+                        <mat-option *ngFor="let course of courses" [value]="course">
+                          {{ course }}
                         </mat-option>
                       </mat-select>
                 </mat-form-field>
                 <mat-form-field appearance="outline" [style.width.%]=50 [style.padding.%]=1>                                  
                     <mat-label>Branch</mat-label>
                     <mat-select name="branch" formControlName="branch" >
-                        <mat-option *ngFor="let branch of branches" [value]="branch.value">
-                          {{ branch.viewValue }}
+                        <mat-option *ngFor="let branch of branches" [value]="branch">
+                          {{ branch }}
                         </mat-option>
                       </mat-select>
                 </mat-form-field>   
@@ -66,17 +66,17 @@
                         <div class="col-md-6">
                             <mat-form-field appearance="outline" [style.width.%]=100>
                                 <mat-label>Course</mat-label>
-                                <mat-select name="course" formControlName="course" >
-                                    <mat-option *ngFor="let course of courses" [value]="course.value">
-                                      {{ course.value }}
+                                <mat-select name="course" formControlName="course" (selectionChange)="branchform2()">
+                                    <mat-option *ngFor="let course of courses" [value]="course">
+                                      {{ course }}
                                     </mat-option>
                                   </mat-select>
                             </mat-form-field>
                             <mat-form-field appearance="outline" [style.width.%]=100>                                  
                                 <mat-label>Branch</mat-label>
                                 <mat-select name="branch" formControlName="branch" >
-                                    <mat-option *ngFor="let branch of branches" [value]="branch.value">
-                                      {{ branch.viewValue }}
+                                    <mat-option *ngFor="let branch of branches" [value]="branch">
+                                      {{ branch }}
                                     </mat-option>
                                   </mat-select>
                             </mat-form-field>   

@@ -36,7 +36,12 @@ import { UserListComponent } from './user-list/user-list.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ViewFeeComponent } from './view-fee/view-fee.component';
-import { ManageFeeComponent } from './manage-fee/manage-fee.component'; 
+import { ManageFeeComponent } from './manage-fee/manage-fee.component';
+import { ViewCoursesComponent } from './view-courses/view-courses.component';
+import { ManageCoursesComponent } from './manage-courses/manage-courses.component';
+import { ManageSubjectsComponent } from './manage-subjects/manage-subjects.component';
+import { ViewSubjectsComponent } from './view-subjects/view-subjects.component'; 
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +56,11 @@ import { ManageFeeComponent } from './manage-fee/manage-fee.component';
     StudentListComponent,
     UserListComponent,
     ViewFeeComponent,
-    ManageFeeComponent
+    ManageFeeComponent,
+    ViewCoursesComponent,
+    ManageCoursesComponent,
+    ManageSubjectsComponent,
+    ViewSubjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +86,8 @@ import { ManageFeeComponent } from './manage-fee/manage-fee.component';
     MatSelectModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

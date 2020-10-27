@@ -1,0 +1,29 @@
+<div style="padding: 3%;">
+    <h2>Available Courses</h2>
+    <mat-card style="overflow: auto;">
+        <div class="row" style="margin: 0px; min-height: 456px;">
+            <table style="width: 100%; ">
+                <tr style="border-bottom: solid 1px black;">
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Duration</th>
+                    <th>Semesters</th>
+                    <th>Action</th>
+                </tr>
+                <tr *ngFor="let i of courses | paginate : {id: 'pagination',itemsPerPage: 10, currentPage: page };">
+                    <td>{{i.name}}</td>
+                    <td>{{i.code}}</td>
+                    <td>{{i.duration}} Years</td>
+                    <td>{{i.semesters}} Semesters</td>
+                    <td><a color="primary" (click)="viewSubjects(i._id)">View Subjects</a>&nbsp;<span *ngIf="admin">/</span>&nbsp;<a style="color: brown;" *ngIf="admin" (click)="manageSubjects(i._id,i.name)">Manage Subjects</a></td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div class="page">
+            <pagination-controls id="pagination" (pageChange)="page = $event" (pageBoundsCorrection)="page = $event" maxSize="5">
+            </pagination-controls>
+        </div>
+
+    </mat-card>
+</div>

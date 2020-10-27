@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroupDirective, NgForm } from "@angular/forms";
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { UserService } from '../../service/user.service'
 
 
@@ -23,6 +24,7 @@ export class LoginPageComponent implements OnInit {
     pswd:['']
   })
 
+  priv:any;
 
   ngOnInit(): void {
   }
@@ -33,6 +35,7 @@ export class LoginPageComponent implements OnInit {
         if(res.privilege==1){
           localStorage.setItem('token',res.token);
           localStorage.setItem('user_id',res._id);
+          localStorage.setItem('priv',res.privilege);
           this.router.navigate(['/admin/dashboard']);
         }
         else{
@@ -50,6 +53,8 @@ export class LoginPageComponent implements OnInit {
         if(res.privilege==2){
           localStorage.setItem('token',res.token);
           localStorage.setItem('user_id',res._id);
+          localStorage.setItem('priv',res.privilege);
+          this.priv=res.privilege;
           this.router.navigate(['/faculty/dashboard']);
         }
         else{

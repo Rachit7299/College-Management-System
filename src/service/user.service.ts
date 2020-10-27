@@ -37,6 +37,7 @@ export class UserService {
   logoutUser() {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
+    localStorage.removeItem('priv');
     window.location.replace('');
   }
 

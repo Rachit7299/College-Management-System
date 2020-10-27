@@ -1,0 +1,16 @@
+th, td{
+    padding: 3px;
+    line-height: 22px;
+    font-size: 14px;
+    text-align: center;
+    font-family: Montserrat;
+}
+
+td{
+    line-height: 22px;
+    font-weight: 500;
+}
+
+hr{
+    margin: 8px;
+}

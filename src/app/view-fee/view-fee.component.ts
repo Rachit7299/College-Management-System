@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FeeService } from '../../service/fee.service';
+import { CourseService } from '../../service/course.service'
 
 @Component({
   selector: 'app-view-fee',
@@ -8,13 +9,27 @@ import { FeeService } from '../../service/fee.service';
 })
 export class ViewFeeComponent implements OnInit {
 
-  constructor(private apiService: FeeService) { }
+  constructor(private apiService: FeeService, private courseService:CourseService) { }
   year = [{'value':1, 'viewValue':'First'},{'value':2, 'viewValue':'Second'},{'value':3, 'viewValue':'Third'},{'value':4, 'viewValue':'Fourth'}];
   btechFee =[];
   yearfee=[];  
+  iscourses=false;
+  courses=[];
   i:any;
 
   ngOnInit(): void {
+    this.courseService.getcourses().subscribe(
+      (res)=>{
+        this.courses=res;
+        this.iscourses=true;
+      },(err)=>{
+        if(err.status!=200){
+          window.alert('Error')
+        }
+      }
+    );
+
+    
     for(this.i=0;this.i<4;this.i++){    
       let x=0;  
       x=this.i+1;

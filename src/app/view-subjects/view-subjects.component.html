@@ -1,0 +1,29 @@
+<div>
+    <div style="min-height: 377px;">
+        <table style="width: 100%; ">
+            <tr style="border-bottom: solid 1px black;">
+                <th>Name</th>
+                <th>Code</th>
+                <th>Type</th>
+                <th>Branch</th>
+                <th>Semester</th>
+                <th>Theory<br> Marks</th>
+                <th>Practical<br> Marks</th>
+            </tr>
+            <tr *ngFor="let i of subjects | paginate : {id: 'pagination',itemsPerPage: 12, currentPage: page };">
+                <td>{{i.subject_name}}</td>
+                <td>{{i.subject_code}}</td>
+                <td>{{i.subject_type}}</td>
+                <td>{{i.subject_branch}}</td>
+                <td>{{i.subject_semester}}</td>
+                <td>{{i.theory_marks}}</td>
+                <td>{{i.practical_marks}}</td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <div class="page">
+        <pagination-controls id="pagination" (pageChange)="page = $event" (pageBoundsCorrection)="page = $event" maxSize="5">
+        </pagination-controls>
+    </div>
+</div>
