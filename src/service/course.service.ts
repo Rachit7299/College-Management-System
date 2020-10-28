@@ -32,6 +32,9 @@ export class CourseService {
     return this.http.get('http://localhost:3000/courses/find-course/'+name);
   }
 
+  getcourseyear(name):Observable<any>{
+    return this.http.get('http://localhost:3000/courses/get-years?name='+name);
+  }
 //Branches
 
   getallbranches(name):Observable<any>{

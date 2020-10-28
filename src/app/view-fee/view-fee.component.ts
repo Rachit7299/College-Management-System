@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FeeService } from '../../service/fee.service';
-import { CourseService } from '../../service/course.service'
+import { CourseService } from '../../service/course.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-view-fee',
@@ -9,13 +10,20 @@ import { CourseService } from '../../service/course.service'
 })
 export class ViewFeeComponent implements OnInit {
 
-  constructor(private apiService: FeeService, private courseService:CourseService) { }
-  year = [{'value':1, 'viewValue':'First'},{'value':2, 'viewValue':'Second'},{'value':3, 'viewValue':'Third'},{'value':4, 'viewValue':'Fourth'}];
-  btechFee =[];
+  constructor(private apiService: FeeService, private courseService:CourseService, private fb: FormBuilder) { }
+  year = [];
+  courseFee =[];
   yearfee=[];  
   iscourses=false;
   courses=[];
+  totalyear = 0;
   i:any;
+
+  courseForm2 = this.fb.group({
+    course:[''],
+  })
+
+  selectedCourse :String;
 
   ngOnInit(): void {
     this.courseService.getcourses().subscribe(
@@ -30,13 +38,34 @@ export class ViewFeeComponent implements OnInit {
     );
 
     
-    for(this.i=0;this.i<4;this.i++){    
+
+  }
+
+  branchform(){
+  this.selectedCourse=this.courseForm2.value.course;
+    this.courseService.getcourseyear(this.courseForm2.value.course).subscribe(
+      (res)=>{
+        this.totalyear=res;
+        this.getFee();
+      },(err)=>{
+        if(err.status!=200){
+          window.alert('Error')
+        }
+      }
+    )
+  }
+
+
+  getFee(){
+    this.year=[];
+    for(this.i=0;this.i<this.totalyear;this.i++){
       let x=0;  
       x=this.i+1;
-      this.apiService.getcourse('B-tech',x).subscribe(
+      this.year.push(x);
+      this.apiService.getcourse(this.courseForm2.value.course,x).subscribe(
         (res)=>{
           this.yearfee=res;
-          this.btechFee[x]=this.yearfee;   
+          this.courseFee[x]=this.yearfee;             
         },
         (err)=>{
           window.alert(err);
@@ -44,5 +73,4 @@ export class ViewFeeComponent implements OnInit {
       )
     }
   }
-
 }
