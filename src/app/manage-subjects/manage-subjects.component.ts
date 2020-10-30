@@ -4,6 +4,7 @@ import { CourseService } from '../../service/course.service';
 import { FormBuilder } from '@angular/forms';
 
 
+
 @Component({
   selector: 'app-manage-subjects',
   templateUrl: './manage-subjects.component.html',
@@ -22,6 +23,7 @@ export class ManageSubjectsComponent implements OnInit {
 
   types=["Core","Optional"];
   branches=[];
+  subjects=[];
 
   createSubject = this.fb.group({
     subject_name:[''],
@@ -45,6 +47,16 @@ export class ManageSubjectsComponent implements OnInit {
         }
       }
     )
+
+    this.apiService.getallsubjects(this.id).subscribe(
+      (res)=>{
+        this.subjects=res;
+      },(err)=>{
+        if(err.status!=200){
+          window.alert('Error')
+        }
+      }
+    )
   }
 
   create(f){
@@ -54,6 +66,18 @@ export class ManageSubjectsComponent implements OnInit {
         this.createSubject.reset();
         f.resetForm();
         this.ngOnInit();
+      },(err)=>{
+        if(err.status!=200){
+          window.alert('Error')
+        }
+      }
+    )
+  }
+
+  deleteSubject(code){
+    this.apiService.deleteSubjects(this.id,code).subscribe(
+      (res)=>{
+        window.alert('Subject Deleted');
       },(err)=>{
         if(err.status!=200){
           window.alert('Error')

@@ -44,6 +44,14 @@
             >Add Subject</button>
         </form>
     </mat-tab>
-    <mat-tab label="Update/Delete">    
+    <mat-tab label="Delete">    
+        <table style="width: 100%;">
+            <tr style="border-bottom: solid 1px black;">
+                <th>Name</th><th>Code</th><th>Branch</th><th>Action</th>
+            </tr>
+            <tr *ngFor="let i of subjects">
+                <td>{{i.subject_name}}</td><td>{{i.subject_code}}</td><td>{{i.subject_branch}}</td><td><a style="color: brown;" (click)="deleteSubject(i.subject_code)">Delete</a></td>
+            </tr>
+        </table>
     </mat-tab>
 </mat-tab-group>

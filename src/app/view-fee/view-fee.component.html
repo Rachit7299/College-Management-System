@@ -1,3 +1,4 @@
+
 <div style="padding: 3%;">
 <h2 style="display: inline;">Fee Structure</h2>
 <div style="float:right;">
@@ -12,13 +13,13 @@
     </mat-form-field>
 </form>
 </div>
-<div class="row" style="margin: 0px;">
+<div class="row" id="content" style="margin: 0px;" #content>
     <h3>{{selectedCourse}}</h3>
     <div class="row" style="margin: 0px;" *ngFor="let y of year">
         <h4>Year {{y}}:</h4>
-        <table style="border: solid 1px black" >
+        <table style="border: solid 1px black" id=”my-table” >
             <tr >
-                <th>Branch</th><th style="text-align: center; width: 50px;" *ngFor="let i of courseFee[y]">{{i.branch}}</th>
+                <th >Branch</th><th style="text-align: center; width: 50px;" *ngFor="let i of courseFee[y]">{{i.branch}}</th>
             </tr>
             <tr >
                 <th>Tution Fee</th><td *ngFor="let i of courseFee[y]">{{i.tutionfee}}</td>
@@ -37,6 +38,7 @@
             </tr>
         </table>
     </div>
-
+    
 </div>
+<button mat-raised-button color="primary" (click)="downloadPdf()" style="margin-top: 8px;">Download</button>
 </div>

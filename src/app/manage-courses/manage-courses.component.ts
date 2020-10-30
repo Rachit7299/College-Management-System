@@ -123,7 +123,20 @@ export class ManageCoursesComponent implements OnInit {
   }
 
   update(f){
-
+    this.apiService.updatecourse(this.courseForm.value.course,this.updateCourse.value).subscribe(
+      (res)=>{
+        window.alert('Course Updated');
+        this.updateform();
+      },(err)=>{
+        if(err.status!=200){
+          window.alert('Error')
+        }
+        else{
+          window.alert('Course Updated');
+        }
+      
+      }
+    )
   }
 
   

@@ -35,6 +35,10 @@ export class CourseService {
   getcourseyear(name):Observable<any>{
     return this.http.get('http://localhost:3000/courses/get-years?name='+name);
   }
+
+  updatecourse(name,data):Observable<any>{
+    return this.http.post('http://localhost:3000/courses/update-course/'+name,data);
+  }
 //Branches
 
   getallbranches(name):Observable<any>{
@@ -63,4 +67,11 @@ export class CourseService {
     return this.http.delete('http://localhost:3000/courses/del-subject/'+id+'&'+subject_name);
   }
 
+  getCoreSubjects(c_name,b_name,sem):Observable<any>{
+    return this.http.get('http://localhost:3000/courses/get-core-subjects/'+c_name+'&'+b_name+'&'+sem);
+  }
+
+  getOptionalSubjects(c_name,b_name,sem):Observable<any>{
+    return this.http.get('http://localhost:3000/courses/get-core-subjects/'+c_name+'&'+b_name+'&'+sem);
+  }
 }

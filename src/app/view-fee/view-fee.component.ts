@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FeeService } from '../../service/fee.service';
 import { CourseService } from '../../service/course.service';
 import { FormBuilder } from '@angular/forms';
-
+import * as  jsPDF  from "jspdf";
+import 'jspdf-autotable';
 @Component({
   selector: 'app-view-fee',
   templateUrl: './view-fee.component.html',
@@ -24,6 +25,29 @@ export class ViewFeeComponent implements OnInit {
   })
 
   selectedCourse :String;
+
+  @ViewChild('content') content: ElementRef;
+
+  public downloadPdf(){
+    let doc = new jsPDF();
+
+    let specialElementHandlers = {
+      '#editor' : function(element, renderer){
+        return true;
+      }
+    };
+
+    let content = this.content.nativeElement;
+
+    doc.fromHTML(content.innerHTML, 15,15,{
+      'width' :100,
+      'elementHandlers' : specialElementHandlers
+    });
+
+    
+    doc.save('FeeStructure.pdf')
+
+  }
 
   ngOnInit(): void {
     this.courseService.getcourses().subscribe(

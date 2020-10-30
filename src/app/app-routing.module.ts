@@ -13,6 +13,7 @@ import { ViewFeeComponent } from './view-fee/view-fee.component';
 import { ManageFeeComponent } from './manage-fee/manage-fee.component'
 import { ViewCoursesComponent } from './view-courses/view-courses.component';
 import { ManageCoursesComponent } from './manage-courses/manage-courses.component';
+import { CreateStudentComponent } from './create-student/create-student.component';
 
 const routes: Routes = [
   {path: '', component: LoginPageComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path: 'manage-users', component: UserListComponent},
     {path: 'manage-students', component: StudentListComponent},
     {path: 'create-user', component: CreateUserComponent},
+    {path: 'create-students', component: CreateStudentComponent},
     {path: 'view-fee', component: ViewFeeComponent},
     {path: 'manage-fee', component: ManageFeeComponent},
     {path: 'view-courses', component: ViewCoursesComponent},

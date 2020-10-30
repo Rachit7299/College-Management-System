@@ -42,6 +42,7 @@ import { ManageCoursesComponent } from './manage-courses/manage-courses.componen
 import { ManageSubjectsComponent } from './manage-subjects/manage-subjects.component';
 import { ViewSubjectsComponent } from './view-subjects/view-subjects.component'; 
 import {MatChipsModule} from '@angular/material/chips';
+import {MatStepperModule} from '@angular/material/stepper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +88,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatProgressSpinnerModule,
     MatDialogModule,
     NgxPaginationModule,
-    MatChipsModule
+    MatChipsModule,
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
