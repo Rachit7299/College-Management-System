@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { CourseService } from '../../service/course.service';
 import { FormBuilder } from '@angular/forms';
 import { StudentService } from '../../service/student.service';
-
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-create-student',
@@ -11,8 +11,10 @@ import { StudentService } from '../../service/student.service';
 })
 export class CreateStudentComponent implements OnInit {
 
-  constructor(private fb : FormBuilder, private cServ:CourseService, private apiService: StudentService) { }
 
+  selectedfile:File = null;
+  constructor(private fb : FormBuilder, private cServ:CourseService, private apiService: StudentService) { }
+  OpSub=[];
   createStudent = this.fb.group({
     name:[''],
     email:[''],
@@ -24,8 +26,8 @@ export class CreateStudentComponent implements OnInit {
     gender:[''],
     year:[''],
     semester:[''],
-    core_subjects:[''],
-    optional_subjects:[''],
+    core_subjects:this.fb.array([]),
+    optional_subjects:this.fb.array([]),
     address:[''],
     city:[''],
     fatherName:[''],
@@ -33,15 +35,23 @@ export class CreateStudentComponent implements OnInit {
     fatherOccupation:[''],
     motherOccupation:[''],
     hostler:[''],
-    feeStatus:['']
+    feeStatus:[''],
+    subject_name:[''],
+    image:['']
+  })
+
+  subjectForm = this.fb.group({
+    core_subjects:this.fb.array([]),
+    optional_subjects:this.fb.array([]),
   })
   
   isEditable = true;
   genders=['Male', 'Female'];
   courses=[];
   branches=[];
-  OpSub=[];  
+    
   hostel=['Yes','No'];
+  fees=['Paid','Not Paid'];
   years=[
     {"value":1,"viewValue":"First"},
     {"value":2,"viewValue":"Second"},
@@ -59,6 +69,12 @@ export class CreateStudentComponent implements OnInit {
     {"value":8,"viewValue":"Eight"}
   ]
 
+  onFile(event) {
+    if(event.target.files.length>0)
+      this.selectedfile = <File>event.target.files[0];
+  }
+ 
+
 
   ngOnInit(): void {
     this.cServ.getcourses().subscribe(
@@ -71,6 +87,8 @@ export class CreateStudentComponent implements OnInit {
         }
       }
     )
+
+    this.getStudent();
   }
 
   branchform(){
@@ -85,9 +103,112 @@ export class CreateStudentComponent implements OnInit {
     )
   }
 
+  subjectform(){
+    this.cServ.getOptionalSubjects(this.createStudent.value.course,this.createStudent.value.branch,this.createStudent.value.semester).subscribe(
+      (res)=>{
+        this.OpSub=res;
+      },(err)=>{
+        if(err.status!=200){
+          window.alert('Error')
+        }
+      }
+    )
+    this.cServ.getCoreSubjects(this.createStudent.value.course,this.createStudent.value.branch,this.createStudent.value.semester).subscribe(
+      (res)=>{
+        for(let i =0; i<res.length; i++){
+          this.subjectForm.value.core_subjects.push(res[i]);
+        }
+        
+      },(err)=>{
+        if(err.status!=200){
+          window.alert('Error')
+        }
+      }
+    )
+  }
+
+  Opsubjectform(){
+    this.subjectForm.value.optional_subjects.push(this.createStudent.value.subject_name);
+  }
+
+  
+
   submit(f){
+    const fd = new FormData();
+    fd.append('name',this.createStudent.value.name);
+    fd.append('email',this.createStudent.value.email);
+    fd.append('mobile',this.createStudent.value.mobile);
+    fd.append('course',this.createStudent.value.course);
+    fd.append('branch',this.createStudent.value.branch);
+    fd.append('std_no',this.createStudent.value.std_no);
+    fd.append('dob',this.createStudent.value.dob);
+    fd.append('gender',this.createStudent.value.gender);
+    fd.append('year',this.createStudent.value.year);
+    fd.append('semester',this.createStudent.value.semester);
+    // fd.append('core_subjects',this.createStudent.value.core_subjects);
+    // fd.append('optional_subjects',this.createStudent.value.optional_subjects);
+    fd.append('address',this.createStudent.value.address);
+    fd.append('city',this.createStudent.value.city);
+    fd.append('fatherName',this.createStudent.value.fatherName);
+    fd.append('motherName',this.createStudent.value.motherName);
+    fd.append('fatherOccupation',this.createStudent.value.fatherOccupation);
+    fd.append('motherOccupation',this.createStudent.value.motherOccupation);
+    fd.append('hostler',this.createStudent.value.hostler);
+    fd.append('feeStatus',this.createStudent.value.std_no);
+    fd.append('image',this.selectedfile, this.selectedfile.name);
+
+    console.log(this.subjectForm);
+    
+    this.apiService.createStudent(fd).subscribe(
+      (res)=>{
+        let id = res._id;
+        this.apiService.addSubjects(this.subjectForm.value,id).subscribe(
+          (resp)=>{
+            window.alert('Student Added');
+            this.createStudent.reset();
+            f.resetForm();        
+            window.location.reload();
+          },(err)=>{
+            if(err.status!=200){
+              window.alert('Error')
+            }
+          }
+        )        
+      },(err)=>{
+        if(err.status!=200){
+          window.alert('Error')
+        }
+      }
+    )
     console.log(this.createStudent.value)
-    window.location.reload()
+    // window.location.reload()
+  }
+
+  student:any;
+ is=false;
+
+ createImageFromBlob(image: Blob) {
+  let reader = new FileReader();
+  reader.addEventListener("load", () => {
+     this.student = reader.result;
+  }, false);
+
+  if (image) {
+     reader.readAsDataURL(image);
+  }
+}
+
+  getStudent(){
+    this.apiService.getImage('5f9ff8624a15194378064a22').subscribe(
+      (res)=>{
+        this.createImageFromBlob(res);
+        this.is=true;
+      },(err)=>{
+        if(err.status!=200){
+          window.alert('Error')
+        }
+      }
+    )
   }
 
 }

@@ -72,6 +72,6 @@ export class CourseService {
   }
 
   getOptionalSubjects(c_name,b_name,sem):Observable<any>{
-    return this.http.get('http://localhost:3000/courses/get-core-subjects/'+c_name+'&'+b_name+'&'+sem);
+    return this.http.get('http://localhost:3000/courses/get-optional-subjects/'+c_name+'&'+b_name+'&'+sem);
   }
 }

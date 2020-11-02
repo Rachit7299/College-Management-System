@@ -17,6 +17,10 @@ export class StudentService {
     createStudent(data):Observable<any>{
         return this.http.post('http://localhost:3000/students/add-student',data);
     }
+
+    addSubjects(data,id):Observable<any>{
+        return this.http.post('http://localhost:3000/students/add-subjects?id='+id,data);
+    }
     
     updateStudent(data,id):Observable<any>{
         return this.http.patch('http://localhost:3000/students/update-student?id='+id,data);
@@ -24,5 +28,13 @@ export class StudentService {
 
     getfilteredStudents(yr,br,cr):Observable<any>{
         return this.http.get('http://localhost:3000/students/get-filter?year='+yr+'&branch='+br+'&course='+cr);
+    }
+
+    getOneStudent(id):Observable<any>{
+        return this.http.get('http://localhost:3000/students/get-one?id='+id)
+    }
+
+    getImage(id):Observable<any>{
+        return this.http.get('http://localhost:3000/students/get-image?id='+id,{ responseType : 'blob'})
     }
 }
