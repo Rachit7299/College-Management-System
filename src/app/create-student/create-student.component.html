@@ -61,7 +61,14 @@
                 </mat-option>
               </mat-select>
         </mat-form-field>
-        <input name="image" formControlName="image" required type="file" placeholder="Image" (change)="onFile($event)"/><br>
+        <div class="row">
+          <div class="col-md-2">
+            <h4 style="font-weight: 600; font-family: Montserrat;">Student Image:</h4>
+          </div>
+          <div class="col-md-10">
+            <input name="image" formControlName="image" required type="file" placeholder="Image" (change)="onFile($event)"/>
+          </div>
+        </div>
                 <div>
                 <button mat-raised-button type="button" matStepperNext color="primary">Next</button>
               </div>
@@ -136,6 +143,5 @@
     </mat-horizontal-stepper>
         </form>
     </mat-card>
-   <img src={{student}} height="80px" width="80px" *ngIf="is">
 </div>
 

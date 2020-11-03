@@ -43,6 +43,7 @@ import { ManageSubjectsComponent } from './manage-subjects/manage-subjects.compo
 import { ViewSubjectsComponent } from './view-subjects/view-subjects.component'; 
 import {MatChipsModule} from '@angular/material/chips';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +90,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatDialogModule,
     NgxPaginationModule,
     MatChipsModule,
-    MatStepperModule
+    MatStepperModule,
+    MatProgressBarModule
   ],schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]
