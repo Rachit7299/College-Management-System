@@ -14,6 +14,7 @@ import { ManageFeeComponent } from './manage-fee/manage-fee.component'
 import { ViewCoursesComponent } from './view-courses/view-courses.component';
 import { ManageCoursesComponent } from './manage-courses/manage-courses.component';
 import { CreateStudentComponent } from './create-student/create-student.component';
+import { TimeTableComponent } from './time-table/time-table.component';
 
 const routes: Routes = [
   {path: '', component: LoginPageComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
     {path: 'manage-fee', component: ManageFeeComponent},
     {path: 'view-courses', component: ViewCoursesComponent},
     {path: 'manage-courses', component: ManageCoursesComponent},
+    {path: 'time-table', component: TimeTableComponent}
   ]
   },
   {path: 'faculty', component: FacultyNavComponent,canActivate:[AuthGuard],
@@ -35,7 +37,8 @@ const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent},
     {path: 'manage-students', component: StudentListComponent},
     {path: 'view-fee', component:ViewFeeComponent},
-    {path: 'view-courses', component: ViewCoursesComponent}
+    {path: 'view-courses', component: ViewCoursesComponent},
+    {path: 'time-table', component:TimeTableComponent}
   ]
   }  
 ];

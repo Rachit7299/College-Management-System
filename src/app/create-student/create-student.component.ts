@@ -145,8 +145,6 @@ export class CreateStudentComponent implements OnInit {
     fd.append('gender',this.createStudent.value.gender);
     fd.append('year',this.createStudent.value.year);
     fd.append('semester',this.createStudent.value.semester);
-    // fd.append('core_subjects',this.createStudent.value.core_subjects);
-    // fd.append('optional_subjects',this.createStudent.value.optional_subjects);
     fd.append('address',this.createStudent.value.address);
     fd.append('city',this.createStudent.value.city);
     fd.append('fatherName',this.createStudent.value.fatherName);

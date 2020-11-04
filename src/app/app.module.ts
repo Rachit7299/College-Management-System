@@ -44,6 +44,7 @@ import { ViewSubjectsComponent } from './view-subjects/view-subjects.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { TimeTableComponent } from './time-table/time-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ViewCoursesComponent,
     ManageCoursesComponent,
     ManageSubjectsComponent,
-    ViewSubjectsComponent
+    ViewSubjectsComponent,
+    TimeTableComponent
   ],
   imports: [
     BrowserModule,

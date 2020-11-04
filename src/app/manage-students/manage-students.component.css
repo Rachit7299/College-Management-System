@@ -1,6 +1,6 @@
 img{
     border-radius: 3px;
-    border: solid 2px grey;
+    border: solid 2px rgb(150, 150, 150);
 }
 
 td,th{

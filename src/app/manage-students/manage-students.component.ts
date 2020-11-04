@@ -18,6 +18,42 @@ export class ManageStudentsComponent implements OnInit {
   pageload = false;
   results:any;
   years=['','First','Second','Third','Fourth','Fifth'];
+ form_years=[
+  {"value":1,"viewValue":"First"},
+  {"value":2,"viewValue":"Second"},
+  {"value":3,"viewValue":"Third"},
+  {"value":4,"viewValue":"Fourth"}
+  ]
+  genders=['Male', 'Female'];
+  courses=[];
+  branches=[];
+  hostel=['Yes','No'];
+  fees=['Paid','Not Paid'];
+
+  createStudent = this.fb.group({
+    name:[''],
+    email:[''],
+    mobile:[''],
+    course:[''],
+    branch:[''],
+    std_no:[''],
+    dob:[''],
+    gender:[''],
+    year:[''],
+    semester:[''],
+    core_subjects:this.fb.array([]),
+    optional_subjects:this.fb.array([]),
+    address:[''],
+    city:[''],
+    fatherName:[''],
+    motherName:[''],
+    fatherOccupation:[''],
+    motherOccupation:[''],
+    hostler:[''],
+    feeStatus:[''],
+    subject_name:[''],
+    image:['']
+  })
 
   createImageFromBlob(image: Blob) {
     let reader = new FileReader();
