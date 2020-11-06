@@ -45,6 +45,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { TimeTableComponent } from './time-table/time-table.component';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +95,8 @@ import { TimeTableComponent } from './time-table/time-table.component';
     NgxPaginationModule,
     MatChipsModule,
     MatStepperModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatBottomSheetModule
   ],schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]

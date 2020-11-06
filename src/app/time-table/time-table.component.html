@@ -34,13 +34,21 @@
                     </form>
                     <div *ngIf="!isLoading">
                         <hr>
-                        <div class="row" style="min-height: 256px; padding-top: 0px;">
+                        <div class="row" style="min-height: 246px; padding-top: 0px;">
                             <table style="width: 100%;">
                                 <tr style="border-bottom:solid 1px black">
-                                    <th style="width: 35%;">Course</th><th style="width: 10%;">Year</th><th style="width: 10%;">Section</th><th style="width: 30%;">Branch</th><th style="width: 15%;">Action</th>
+                                    <th style="width: 35%;">Course</th>
+                                    <th style="width: 10%;">Year</th>
+                                    <th style="width: 10%;">Section</th>
+                                    <th style="width: 30%;">Branch</th>
+                                    <th style="width: 15%;">Action</th>
                                 </tr>
                                 <tr *ngFor="let i of results | paginate : {id: 'pagination',itemsPerPage: 10, currentPage: page, totalItems: total};">
-                                    <td style="width: 35%;">{{i.course}}</td><td style="width: 10%;">{{years[i.year-1].viewValue}}</td><td style="width: 10%;">{{i.section}}</td><td style="width: 30%;">{{i.branch}}</td><td style="width: 15%;"><a>View</a>&nbsp;<a>Delete</a></td>
+                                    <td style="width: 35%;">{{i.course}}</td>
+                                    <td style="width: 10%;">{{years[i.year-1].viewValue}}</td>
+                                    <td style="width: 10%;">{{i.section}}</td>
+                                    <td style="width: 30%;">{{i.branch}}</td>
+                                    <td style="width: 15%;"><a (click)="openBottomSheet(i._id)">View</a>&nbsp;<a>Delete</a></td>
                                 </tr>
                             </table>
                         </div>

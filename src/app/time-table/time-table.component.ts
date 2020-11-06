@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import {CourseService} from '../../service/course.service';
-import { TimeTableService } from '../../service/timeTable.service'
+import { TimeTableService } from '../../service/timeTable.service';
+import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
+import {MAT_BOTTOM_SHEET_DATA} from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-time-table',
@@ -10,7 +12,7 @@ import { TimeTableService } from '../../service/timeTable.service'
 })
 export class TimeTableComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private cServ: CourseService, private apiService: TimeTableService) { }
+  constructor(private fb: FormBuilder, private cServ: CourseService, private apiService: TimeTableService, private _bottomSheet: MatBottomSheet) { }
 
   viewForm = this.fb.group({
     course:[''],
@@ -95,9 +97,6 @@ export class TimeTableComponent implements OnInit {
     )
   }
 
-  getfiltered(){
-
-  }
 
   submit(f){
     this.isLoading=true;
@@ -141,4 +140,47 @@ export class TimeTableComponent implements OnInit {
       }
     )
   }
+
+  openBottomSheet(id): void {
+    this._bottomSheet.open(BottomSheet,{
+      data: {_id: id}
+    });
+  }
+
+}
+
+@Component({
+  selector: 'bottom-sheet-overview-example-sheet',
+  templateUrl: './bottomsheet.html',
+})
+export class BottomSheet implements OnInit{
+  constructor(private _bottomSheetRef: MatBottomSheetRef<BottomSheet>,@Inject(MAT_BOTTOM_SHEET_DATA) public data: any,private apiService : TimeTableService) {}
+
+  img:any;
+  
+  createImageFromBlob(image: Blob) {
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+       this.img = reader.result;
+    }, false);
+  
+    if (image) {
+       reader.readAsDataURL(image);
+    }
+  }
+
+
+  ngOnInit(){
+    this.apiService.getImage(this.data._id).subscribe(
+      (res)=>{
+        this.createImageFromBlob(res);
+      },(err)=>{
+        if(err.status!=200){
+          window.alert('Error');
+        }
+      }
+    )
+  }
+
+
 }

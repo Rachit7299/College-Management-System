@@ -20,6 +20,6 @@ export class TimeTableService {
     }
 
     getImage(id):Observable<any>{
-        return this.http.get('http://localhost:3000/time-table/get-image?id='+id);
+        return this.http.get('http://localhost:3000/time-table/get-image?id='+id,{ responseType : 'blob'});
     }
 }
