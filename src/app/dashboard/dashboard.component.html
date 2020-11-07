@@ -1,24 +1,40 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div style="padding: 2%; padding-left: 5%; padding-right: 5%;">
+    <h2>Dashboard</h2>
+    <div class="row" style="margin-bottom: 24px;">
+      <div class="col-md-8">
+        <mat-card class="dashboard-card">
+          <div class="row" style="height: 100%;">
+            <div class="col-md-6 col-xs-6 col-sm-6" style="border-right: solid 3px #fff; height: 100%;">
+              <h3>Courses</h3>
+              <h1>1</h1>
+            </div>
+            <div class="col-md-6 col-xs-6 col-sm-6">
+              <h3>Branches</h3>
+              <h1>5</h1>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div class="col-md-4">
+        <mat-card class="dashboard-card" style="background-color: #9733EE;">
+          <h3>Users</h3>
+          <h1>3</h1>
+        </mat-card>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 24px;">
+      <div class="col-md-6">
+        <mat-card class="dashboard-card" style="background-color: #02AAB0;">
+          <h3>Students</h3>
+          <h1>7</h1>
+        </mat-card>
+      </div>
+      <div class="col-md-6">
+        <mat-card class="dashboard-card" style="background-color: #F9D423;">
+          <h3>Time Tables</h3>
+          <h1>4</h1>
+        </mat-card>
+      </div>
+    </div>
+
 </div>
