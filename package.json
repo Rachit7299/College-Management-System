@@ -24,6 +24,7 @@
     "@lottiefiles/lottie-player": "^0.5.1",
     "jspdf": "^1.5.3",
     "jspdf-autotable": "^3.5.13",
+    "ng2-pdf-viewer": "^6.3.2",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

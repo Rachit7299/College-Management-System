@@ -46,6 +46,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { TimeTableComponent } from './time-table/time-table.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { NoticesComponent } from './notices/notices.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer'
 
 @NgModule({
   declarations: [
@@ -66,7 +68,8 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
     ManageCoursesComponent,
     ManageSubjectsComponent,
     ViewSubjectsComponent,
-    TimeTableComponent
+    TimeTableComponent,
+    NoticesComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +99,8 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
     MatChipsModule,
     MatStepperModule,
     MatProgressBarModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    PdfViewerModule
   ],schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,11 +6,11 @@
           <div class="row" style="height: 100%;">
             <div class="col-md-6 col-xs-6 col-sm-6" style="border-right: solid 3px #fff; height: 100%;">
               <h3>Courses</h3>
-              <h1>1</h1>
+              <h1>{{results.course}}</h1>
             </div>
             <div class="col-md-6 col-xs-6 col-sm-6">
               <h3>Branches</h3>
-              <h1>5</h1>
+              <h1>{{results.branch}}</h1>
             </div>
           </div>
         </mat-card>
@@ -18,21 +18,34 @@
       <div class="col-md-4">
         <mat-card class="dashboard-card" style="background-color: #9733EE;">
           <h3>Users</h3>
-          <h1>3</h1>
+          <h1>{{results.user}}</h1>
         </mat-card>
       </div>
     </div>
     <div class="row" style="margin-top: 24px;">
       <div class="col-md-6">
-        <mat-card class="dashboard-card" style="background-color: #02AAB0;">
-          <h3>Students</h3>
-          <h1>7</h1>
-        </mat-card>
+        <div class="row" style="margin-left: 0px;">
+          <mat-card class="dashboard-card" style="background-color: #02AAB0;">
+            <h3>Students</h3>
+            <h1>{{results.students}}</h1>
+          </mat-card>
+        </div>
+        <div class="row" style="margin-top: 24px; margin-left: 0px;">
+          <mat-card class="dashboard-card" style="background-color: #F9D423;">
+            <h3>Time Tables</h3>
+            <h1>{{results.timeTable}}</h1>
+          </mat-card>
+        </div>
       </div>
       <div class="col-md-6">
-        <mat-card class="dashboard-card" style="background-color: #F9D423;">
-          <h3>Time Tables</h3>
-          <h1>4</h1>
+        <mat-card class="dashboard-notice-card" style="background-color: #45B649; height: 336px;">
+          <h3 style="margin-bottom: 5px;">Updates</h3>
+          <hr style="margin-top: 0px;">
+          <div class="scroll-left">
+            <ul>
+              <li *ngFor="let i of notices">{{i.description}}</li>
+            </ul>
+          </div>
         </mat-card>
       </div>
     </div>
