@@ -17,6 +17,8 @@
                             <button mat-raised-button color="primary" [style.width.px]=320 [disabled]="!loginForm.valid">Login</button>
                         </form>
                     </mat-tab>
+
+                    
                     <mat-tab label="FACULTY">
                         <form (ngSubmit)="facultyLogin()" [formGroup]="loginForm2" style="margin-top: 3rem;">
                             <mat-form-field appearance="outline" [style.width.px]=320>
