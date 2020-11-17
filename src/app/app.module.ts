@@ -47,7 +47,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { TimeTableComponent } from './time-table/time-table.component';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { NoticesComponent } from './notices/notices.component';
-import { PdfViewerModule } from 'ng2-pdf-viewer'
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ProfileComponent } from './profile/profile.component'
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { PdfViewerModule } from 'ng2-pdf-viewer'
     ManageSubjectsComponent,
     ViewSubjectsComponent,
     TimeTableComponent,
-    NoticesComponent
+    NoticesComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

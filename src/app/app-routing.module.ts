@@ -16,6 +16,7 @@ import { ManageCoursesComponent } from './manage-courses/manage-courses.componen
 import { CreateStudentComponent } from './create-student/create-student.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { NoticesComponent } from './notices/notices.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: '', component: LoginPageComponent},
@@ -40,7 +41,9 @@ const routes: Routes = [
     {path: 'manage-students', component: StudentListComponent},
     {path: 'view-fee', component:ViewFeeComponent},
     {path: 'view-courses', component: ViewCoursesComponent},
-    {path: 'time-table', component:TimeTableComponent}
+    {path: 'time-table', component:TimeTableComponent},
+    {path: 'profile', component:ProfileComponent},
+    {path: 'notices', component:NoticesComponent}
   ]
   }  
 ];

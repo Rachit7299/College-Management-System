@@ -1,7 +1,7 @@
-<div style="padding: 2%; padding-left: 5%; padding-right: 5%;">
+<div style="padding: 2%; padding-left: 5%; padding-right: 5%;" *ngIf="!isLoading">
     <h2>Dashboard</h2>
     <div class="row" style="margin-bottom: 24px;">
-      <div class="col-md-8">
+      <div class="col-md-8" *ngIf="admin">
         <mat-card class="dashboard-card">
           <div class="row" style="height: 100%;">
             <div class="col-md-6 col-xs-6 col-sm-6" style="border-right: solid 3px #fff; height: 100%;">
@@ -15,7 +15,25 @@
           </div>
         </mat-card>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-12" *ngIf="!admin">
+        <mat-card class="dashboard-card">
+          <div class="row" style="height: 100%;">
+            <div class="col-md-4 col-xs-4 col-sm-4" style="border-right: solid 3px #fff; height: 100%;">
+              <h3>Courses</h3>
+              <h1>{{results.course}}</h1>
+            </div>
+            <div class="col-md-4 col-xs-4 col-sm-4" style="border-right: solid 3px #fff; height: 100%;">
+              <h3>Branches</h3>
+              <h1>{{results.branch}}</h1>
+            </div>
+            <div class="col-md-4 col-xs-4 col-sm-4">
+              <h3>Subjectss</h3>
+              <h1>{{results.subject}}</h1>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div class="col-md-4" *ngIf="admin">
         <mat-card class="dashboard-card" style="background-color: #9733EE;">
           <h3>Users</h3>
           <h1>{{results.user}}</h1>

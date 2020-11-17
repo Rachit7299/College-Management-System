@@ -6,10 +6,12 @@
     <mat-toolbar >Faculty</mat-toolbar>
     <hr style="margin-top: 0px;">
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item routerLink="/faculty/dashboard">Dashboard</a>
+      <a mat-list-item routerLink="/faculty/manage-students">Students</a>
       <a mat-list-item routerLink="/faculty/view-courses">View Courses</a>
       <a mat-list-item routerLink="/faculty/view-fee">Fee Structure</a>
+      <a mat-list-item routerLink="/faculty/notices">Notices</a>
+      <a mat-list-item routerLink="/faculty/profile">My Profile</a>
       <a mat-list-item (click)="logout()">Logout</a>
     </mat-nav-list>
   </mat-sidenav>

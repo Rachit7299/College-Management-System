@@ -15,8 +15,11 @@ export class DashboardComponent implements OnInit{
 
   notices:any;
   results:any;
+  admin:Boolean;
+  isLoading:any;
 
   ngOnInit(){
+    this.isLoading=true;
     this.apiService.getNotices().subscribe(
       (res)=>{
         this.notices=res;
@@ -31,6 +34,12 @@ export class DashboardComponent implements OnInit{
     this.apiService.getCourse().subscribe(
       (res)=>{
         this.results=res;
+        if(localStorage.getItem('priv') == '1'){
+          this.admin=true
+        }
+        else{
+          this.admin=false;
+        }
       },(err)=>{
         if(err.status!=200){
           window.alert('Error');
@@ -61,10 +70,12 @@ export class DashboardComponent implements OnInit{
     this.apiService.getUsers().subscribe(
       (res)=>{
         this.results.user=res;
+        this.isLoading=false;
       },(err)=>{
         if(err.status!=200){
           window.alert('Error');
         }
+        this.isLoading=false;
       }
     )
   }
