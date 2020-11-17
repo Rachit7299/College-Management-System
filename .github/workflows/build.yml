@@ -15,4 +15,5 @@ jobs:
       with:
         github_access_token: ${{ secrets.ACCESS_TOKEN }} # see the Configuration section for how you can create secrets
         deploy_branch: gh-pages # The branch the action should deploy to.
+        base_href : College-Management-System
         angular_dist_build_folder: dist/mini-project # The folder where your project is supposed to be after running ng build by the action.
