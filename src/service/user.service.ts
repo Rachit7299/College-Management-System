@@ -11,23 +11,23 @@ export class UserService {
   constructor(private http:HttpClient, private router: Router) { }
 
   login(data):Observable<any>{
-    return this.http.post('http://localhost:3000/user/login',data);
+    return this.http.post('https://ionic-server-app.herokuapp.com/user/login',data);
   }
 
   register(data):Observable<any>{
-    return this.http.post('http://localhost:3000/user/register',data);
+    return this.http.post('https://ionic-server-app.herokuapp.com/user/register',data);
   }
 
   getALL():Observable<any>{
-    return this.http.get('http://localhost:3000/user/getall');
+    return this.http.get('https://ionic-server-app.herokuapp.com/user/getall');
   }
 
   getUser(id):Observable<any>{
-    return this.http.get('http://localhost:3000/user/getuser/'+id);
+    return this.http.get('https://ionic-server-app.herokuapp.com/user/getuser/'+id);
   }
 
   delUser(id):Observable<any>{
-    return this.http.delete('http://localhost:3000/user/delete/'+id);
+    return this.http.delete('https://ionic-server-app.herokuapp.com/user/delete/'+id);
   }
 
   getToken() {

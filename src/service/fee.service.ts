@@ -12,18 +12,18 @@ export class FeeService {
     constructor(private http:HttpClient, private router: Router) { }
 
     getAll():Observable<any>{
-        return this.http.get('http://localhost:3000/fees/get-all');
+        return this.http.get('https://ionic-server-app.herokuapp.com/fees/get-all');
     }
 
     getcourse(course,year):Observable<any>{
-        return this.http.get('http://localhost:3000/fees/get-filter?course='+course+"&year="+year);
+        return this.http.get('https://ionic-server-app.herokuapp.com/fees/get-filter?course='+course+"&year="+year);
     }
 
     deletecourse(course,branch,year):Observable<any>{
-        return this.http.delete('http://localhost:3000/fees/delete?course='+course+"&year="+year+"&branch"+branch);
+        return this.http.delete('https://ionic-server-app.herokuapp.com/fees/delete?course='+course+"&year="+year+"&branch"+branch);
     }
 
     create(data):Observable<any>{
-        return this.http.post('http://localhost:3000/fees/create',data);
+        return this.http.post('https://ionic-server-app.herokuapp.com/fees/create',data);
     }
 }

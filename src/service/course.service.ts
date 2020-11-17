@@ -13,65 +13,65 @@ export class CourseService {
 
     //course
     getallcourses():Observable<any>{
-        return this.http.get('http://localhost:3000/courses/get-all');
+        return this.http.get('https://ionic-server-app.herokuapp.com/courses/get-all');
     }
 
     getcourses():Observable<any>{
-      return this.http.get('http://localhost:3000/courses/get-courses');
+      return this.http.get('https://ionic-server-app.herokuapp.com/courses/get-courses');
   }
 
   createCourse(data):Observable<any>{
-    return this.http.post('http://localhost:3000/courses/create',data);
+    return this.http.post('https://ionic-server-app.herokuapp.com/courses/create',data);
   }
 
   deleteCourse(name):Observable<any>{
-    return this.http.delete('http://localhost:3000/courses/delete-course/'+name)
+    return this.http.delete('https://ionic-server-app.herokuapp.com/courses/delete-course/'+name)
   }
 
   findCourse(name):Observable<any>{
-    return this.http.get('http://localhost:3000/courses/find-course/'+name);
+    return this.http.get('https://ionic-server-app.herokuapp.com/courses/find-course/'+name);
   }
 
   getcourseyear(name):Observable<any>{
-    return this.http.get('http://localhost:3000/courses/get-years?name='+name);
+    return this.http.get('https://ionic-server-app.herokuapp.com/courses/get-years?name='+name);
   }
 
   updatecourse(name,data):Observable<any>{
-    return this.http.post('http://localhost:3000/courses/update-course/'+name,data);
+    return this.http.post('https://ionic-server-app.herokuapp.com/courses/update-course/'+name,data);
   }
 //Branches
 
   getallbranches(name):Observable<any>{
-    return this.http.get('http://localhost:3000/courses/get-branches/'+name);
+    return this.http.get('https://ionic-server-app.herokuapp.com/courses/get-branches/'+name);
   }
 
   deletebranches(name,b_name):Observable<any>{
-    return this.http.delete('http://localhost:3000/courses/del-branch/'+name+'&'+b_name);
+    return this.http.delete('https://ionic-server-app.herokuapp.com/courses/del-branch/'+name+'&'+b_name);
   }
 
   addBranch(data,name):Observable<any>{
-    return this.http.post('http://localhost:3000/courses/add-branches/'+name,data);
+    return this.http.post('https://ionic-server-app.herokuapp.com/courses/add-branches/'+name,data);
   }
 
 //Sybjects
 
   addSubjects(data,id):Observable<any>{
-    return this.http.post('http://localhost:3000/courses/add-subject/'+id,data);
+    return this.http.post('https://ionic-server-app.herokuapp.com/courses/add-subject/'+id,data);
   }
   
   getallsubjects(id):Observable<any>{
-      return this.http.get('http://localhost:3000/courses/get-subjects/'+id);
+      return this.http.get('https://ionic-server-app.herokuapp.com/courses/get-subjects/'+id);
   }
 
   deleteSubjects(id,subject_name):Observable<any>{
-    return this.http.delete('http://localhost:3000/courses/del-subject/'+id+'&'+subject_name);
+    return this.http.delete('https://ionic-server-app.herokuapp.com/courses/del-subject/'+id+'&'+subject_name);
   }
 
   getCoreSubjects(c_name,b_name,sem):Observable<any>{
-    return this.http.get('http://localhost:3000/courses/get-core-subjects/'+c_name+'&'+b_name+'&'+sem);
+    return this.http.get('https://ionic-server-app.herokuapp.com/courses/get-core-subjects/'+c_name+'&'+b_name+'&'+sem);
   }
 
   getOptionalSubjects(c_name,b_name,sem):Observable<any>{
-    return this.http.get('http://localhost:3000/courses/get-optional-subjects/'+c_name+'&'+b_name+'&'+sem);
+    return this.http.get('https://ionic-server-app.herokuapp.com/courses/get-optional-subjects/'+c_name+'&'+b_name+'&'+sem);
   }
 }
