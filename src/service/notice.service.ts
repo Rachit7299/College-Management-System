@@ -12,14 +12,14 @@ export class NoticeService {
     constructor(private http:HttpClient, private router: Router) { }
 
     getNotices():Observable<any>{
-        return this.http.get('https://ionic-server-app.herokuapp.com/notice/get-notices')
+        return this.http.get('https://college-management-project.herokuapp.com/notice/get-notices')
     }
 
     addNotices(data):Observable<any>{
-        return this.http.post('https://ionic-server-app.herokuapp.com/notice/add-notice',data);
+        return this.http.post('https://college-management-project.herokuapp.com/notice/add-notice',data);
     }
 
     getImage(id):Observable<any>{
-        return this.http.get('https://ionic-server-app.herokuapp.com/notice/get-pdf?id='+id,{ responseType : 'blob'});
+        return this.http.get('https://college-management-project.herokuapp.com/notice/get-pdf?id='+id,{ responseType : 'blob'});
     }
 }
