@@ -23,7 +23,6 @@ export class ViewCoursesComponent implements OnInit {
   constructor(private dialog: MatDialog,private apiService:CourseService) { }
 
   courses:CourseList[];
-  page:number=1;
   admin:boolean;
   total=0;
   tableData:CourseList[];
