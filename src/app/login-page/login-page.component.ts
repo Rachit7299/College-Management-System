@@ -25,11 +25,14 @@ export class LoginPageComponent implements OnInit {
   })
 
   priv:any;
+  isLoading=false;
 
   ngOnInit(): void {
+    this.isLoading=false;
   }
 
   adminLogin(){
+    this.isLoading=true;
     this.apiService.login(this.loginForm.value).subscribe(
       (res)=>{
         if(res.privilege==1){
@@ -41,13 +44,16 @@ export class LoginPageComponent implements OnInit {
         else{
           window.alert('Only admins are allowed!')
         }
+        this.isLoading=false;
       },(err)=>{
-        console.log(err)
+        console.log(err);
+        this.isLoading=false;
       }
     )
   }
 
   facultyLogin(){
+    this.isLoading=true;
     this.apiService.login(this.loginForm2.value).subscribe(
       (res)=>{
         if(res.privilege==2){
@@ -60,8 +66,10 @@ export class LoginPageComponent implements OnInit {
         else{
           window.alert('Faculty Not Found')
         }
+        this.isLoading=false;
       },(err)=>{
-        console.log(err)
+        console.log(err);
+        this.isLoading=false;
       }
     )
   }

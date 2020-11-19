@@ -16,16 +16,29 @@ export class DashboardComponent implements OnInit{
   notices:any;
   results:any;
   admin:Boolean;
-  isLoading:any;
+  isLoading_0=false;
+  isLoading_1=false;
+  isLoading_2=false;
+  isLoading_3=false;
+  isLoading_4=false;
+  isLoading_5=false;
+
 
   ngOnInit(){
-    this.isLoading=true;
+    this.isLoading_0=true;
+    this.isLoading_1=true;
+    this.isLoading_2=true;
+    this.isLoading_3=true;
+    this.isLoading_4=true;
+    this.isLoading_5=true;
     this.apiService.getNotices().subscribe(
       (res)=>{
         this.notices=res;
+        this.isLoading_5=false;
       },(err)=>{
         if(err.status!=200){
-          window.alert('Error');
+            window.alert('Error');
+          
         }
       }
     )
@@ -40,9 +53,13 @@ export class DashboardComponent implements OnInit{
         else{
           this.admin=false;
         }
+        this.isLoading_1=false;
+
       },(err)=>{
         if(err.status!=200){
           window.alert('Error');
+        this.isLoading_1=false;
+
         }
       }
     )
@@ -50,9 +67,13 @@ export class DashboardComponent implements OnInit{
     this.apiService.getStudents().subscribe(
       (res)=>{
         this.results.students=res;
+        this.isLoading_3=false;
+
       },(err)=>{
         if(err.status!=200){
           window.alert('Error');
+        this.isLoading_3=false;
+
         }
       }
     )
@@ -60,9 +81,13 @@ export class DashboardComponent implements OnInit{
     this.apiService.gettimeTable().subscribe(
       (res)=>{
         this.results.timeTable=res;
+        this.isLoading_4=false;
+
       },(err)=>{
         if(err.status!=200){
           window.alert('Error');
+        this.isLoading_4=false;
+
         }
       }
     )
@@ -70,12 +95,12 @@ export class DashboardComponent implements OnInit{
     this.apiService.getUsers().subscribe(
       (res)=>{
         this.results.user=res;
-        this.isLoading=false;
+        this.isLoading_2=false;
       },(err)=>{
         if(err.status!=200){
           window.alert('Error');
         }
-        this.isLoading=false;
+        this.isLoading_2=false;
       }
     )
   }

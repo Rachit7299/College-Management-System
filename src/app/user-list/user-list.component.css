@@ -1,22 +1,24 @@
-.login-card {
-    border: 0;
-    min-height: 526px;
-    margin-bottom: 30px;
-    margin-top: 35px;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-radius: 6px !important;
-    color: rgba(0, 0, 0, 0.87);
-    background: #fff;
-    width: 90%;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-      0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  }
-
-th,td{
-    text-align: center;
-}
 
 a{
     cursor: pointer;
+    text-decoration: none;
+}
+
+th.mat-header-cell {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    color: #673ab7;
+    padding: 6px;
+}
+
+td.mat-cell{
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    padding: 6px;
+}
+
+.mat-paginator{
+    width: 100%;
 }
