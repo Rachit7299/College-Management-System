@@ -5,30 +5,30 @@
                 <mat-tab-group style="height: 100%; margin-left: 4%; margin-right: 4%;" mat-align-tabs="center">
                     <mat-tab label="ADMIN"> 
                         <form (ngSubmit)="adminLogin()" [formGroup]="loginForm" style="margin-top: 3rem;">
-                            <mat-form-field appearance="outline" [style.width.px]=320>
+                            <mat-form-field appearance="outline" [style.width.%]=100>
                                 <mat-label>Username</mat-label>
                                 <input matInput name="username" formControlName="username" required />
                             </mat-form-field>
-                            <mat-form-field appearance="outline" [style.width.px]=320>                                  
+                            <mat-form-field appearance="outline" [style.width.%]=100>                                  
                                 <mat-label>Password</mat-label>
                                 <input matInput name="password" formControlName="pswd" type="password" required />
                             </mat-form-field>                              
-                            <button mat-raised-button color="primary" [style.width.px]=320 [disabled]="!loginForm.valid">Login</button>
+                            <button mat-raised-button color="primary" [style.width.%]=100 [disabled]="!loginForm.valid">Login</button>
                         </form>
                     </mat-tab>
 
                     
                     <mat-tab label="FACULTY">
                         <form (ngSubmit)="facultyLogin()" [formGroup]="loginForm2" style="margin-top: 3rem;">
-                            <mat-form-field appearance="outline" [style.width.px]=320>
+                            <mat-form-field appearance="outline" [style.width.%]=100>
                                 <mat-label>Username</mat-label>
                                 <input matInput name="username" formControlName="username" required />
                               </mat-form-field>
-                              <mat-form-field appearance="outline" [style.width.px]=320>                                  
+                              <mat-form-field appearance="outline" [style.width.%]=100>                                  
                                 <mat-label>Password</mat-label>
                                 <input matInput name="password" formControlName="pswd" required />
                               </mat-form-field>
-                              <button mat-raised-button color="accent" [style.width.px]=320 [disabled]="!loginForm2.valid">Login</button>
+                              <button mat-raised-button color="accent" [style.width.%]=100 [disabled]="!loginForm2.valid">Login</button>
                         </form>
                     </mat-tab>
                   </mat-tab-group>
